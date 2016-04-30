@@ -12,20 +12,20 @@
 <body ng-app="todoApp">
 <h1>To-Do List</h1>
 <div ng-controller="TodoController" class="list">
-    <div class="item" ng-class="{'edited': todo.edited}" ng-repeat="todo in todos">
+    <div class="item" ng-class="{'edited': todo.edited, 'completed': todo.completed}" ng-repeat="todo in todos | orderBy: 'completed'" ng-init="todo.completed = false">
         <input ng-model="todo.completed" type="checkbox"/>
         <label ng-hide="editing">{{todo.name}}</label>
         <input ng-change="todo.edited = true" ng-blur="editing=false;"
                ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
 
         <div class="actions">
-            <a class="class=btn btn-default" href="" ng-click="editing=!editing">
+            <a href="" ng-click="editing=!editing" class="btn btn-info">
                 edit
             </a>
-            <a href="" ng-click="saveTodo(todo, $index)">
+            <a href="" ng-click="saveTodo(todo, $index)" class="btn btn-success">
                 save
             </a>
-            <a href="" ng-click="deleteTodo(todo, $index)">
+            <a href="" ng-click="deleteTodo(todo, $index)" class="btn btn-danger">
                 delete
             </a>
         </div>
