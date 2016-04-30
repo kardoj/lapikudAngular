@@ -1,3 +1,7 @@
+.list .item .actions {
+    float: right;
+    margin-right: 20px;
+}
 .list .edited label:after {
     content: " edited";
     text-transform: uppercase;
