@@ -8,18 +8,13 @@
 <body ng-controller="TodoController">
 
     <div>
-        <span ng-show="todo.completed">Checked</span>
         <input type="checkbox" ng-model="todo.completed">
-        <label>Label</label>
-        <input ng-model="todo.name" type="text">
+        <label ng-hide="editing">Label</label>
+        <input ng-show="editing" ng-model="todo.name" type="text">
     </div>
 
-    <span>
-        {{ todo.name }}
-    </span>
-
     <div>
-        <button ng-click="click('Edit')">Edit</button>
+        <button ng-click="edit()">Edit</button>
         <button ng-click="click('Save')">Save</button>
         <button ng-click="click('Delete')">Delete</button>
     </div>
