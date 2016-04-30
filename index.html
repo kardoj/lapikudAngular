@@ -5,11 +5,11 @@
     <title>TodoApp</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body ng-controller="TodoController">
+<body ng-controller="TodoController" ng-cloak>
 
-    <div>
-        <input type="checkbox" ng-model="todo.completed">
-        <label ng-hide="editing">Label</label>
+    <div ng-repeat="todo in todos">
+        <input type="checkbox">
+        <label ng-hide="editing">{{ todo.name }}</label>
         <input ng-show="editing" ng-model="todo.name" type="text">
     </div>
 
