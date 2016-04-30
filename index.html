@@ -5,16 +5,14 @@
     <title>TodoApp</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body ng-controller="TodoController" ng-cloak>
+<body ng-controller="TodoController">
 
     <div ng-repeat="todo in todos">
-        <input type="checkbox">
+        <input type="checkbox" ng-model="todo.completed">
         <label ng-hide="editing">{{ todo.name }}</label>
-        <input ng-show="editing" ng-model="todo.name" type="text">
-    </div>
+        <input ng-show="editing" ng-model="todo.name" type="text" ng-blur="editing=false">
 
-    <div>
-        <button ng-click="edit()">Edit</button>
+        <button ng-click="editing=!editing">Edit</button>
         <button ng-click="click('Save')">Save</button>
         <button ng-click="click('Delete')">Delete</button>
     </div>
