@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="todoApp">
+<html lang="en">
+<link href='styles/main.css' rel='stylesheet' type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>TodoApp</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Title</title>
 </head>
-<body ng-controller="TodoController">
+<body ng-app="todoApp">
+<h1>To-Do List</h1>
+<div ng-controller="TodoController" class="list">
+    <div class="item" ng-class="{'edited': todo.edited}" ng-repeat="todo in todos">
+        <input ng-model="todo.completed" type="checkbox"/>
+        <label ng-hide="editing">{{todo.name}}</label>
+        <input ng-change="todo.edited = true" ng-blur="editing=false;"
+               ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
 
-    <div ng-repeat="todo in todos">
-        <input type="checkbox" ng-model="todo.completed">
-        <label ng-hide="editing">{{ todo.name }}</label>
-        <input ng-show="editing" ng-model="todo.name" type="text" ng-blur="editing=false">
-
-        <button ng-click="editing=!editing">Edit</button>
-        <button ng-click="click('Save')">Save</button>
-        <button ng-click="click('Delete')">Delete</button>
+        <div class="actions">
+            <a href="" ng-click="editing=!editing">
+                edit
+            </a>
+            <a href="" ng-click="test()">
+                save
+            </a>
+            <a href="">
+                delete
+            </a>
+        </div>
     </div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
 
-    <script src="scripts/app.js"></script>
-    <script src="controllers/TodoController.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="scripts/app.js" type="text/javascript"></script>
+<script src="controllers/TodoController.js" type="text/javascript"></script>
+
 </body>
 </html>

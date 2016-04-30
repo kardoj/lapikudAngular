@@ -10,7 +10,6 @@ app.controller("TodoController", function($scope){
         { name: "Learn Angular" },
         { name: "Third assignment"}
     ];
-    $scope.editing = false;
 
     $scope.click = function(buttonText){
         console.log(buttonText + " was clicked!");

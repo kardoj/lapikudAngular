@@ -1,0 +1,4 @@
+.list .edited label:after {
+    content: " edited";
+    text-transform: uppercase;
+}
