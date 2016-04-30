@@ -8,11 +8,15 @@
 <body ng-controller="TodoController">
 
     <div>
-        <input type="checkbox">
+        <span ng-show="todo.completed">Checked</span>
+        <input type="checkbox" ng-model="todo.completed">
         <label>Label</label>
-        <input type="text">
-
+        <input ng-model="todo.name" type="text">
     </div>
+
+    <span>
+        {{ todo.name }}
+    </span>
 
     <div>
         <button ng-click="test()">Edit</button>
