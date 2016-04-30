@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <title>TodoApp</title>
     <link rel="stylesheet" href="styles/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 </head>
-<body>
+<body ng-controller="TodoController">
 
     <div>
         <input type="checkbox">
@@ -15,11 +14,14 @@
     </div>
 
     <div>
-        <button>Edit</button>
+        <button ng-click="test()">Edit</button>
         <button>Save</button>
         <button>Delete</button>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+
     <script src="scripts/app.js"></script>
+    <script src="controllers/TodoController.js"></script>
 </body>
 </html>
